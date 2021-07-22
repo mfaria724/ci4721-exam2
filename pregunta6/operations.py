@@ -32,7 +32,7 @@ def binary(operation, stack):
   """
 
   # check if there are enough elements in the stack
-  if stack.lenght() < 2:
+  if stack.length() < 2:
     print_error('No hay suficientes elementos en la pila.')
     stack.print()
     return
@@ -73,7 +73,7 @@ def unary(operation, stack):
   """
 
   # check if there are enough elements in the stack
-  if stack.lenght() < 1:
+  if stack.length() < 1:
     print_error('No hay suficientes elementos en la pila.')
     stack.print()
     return

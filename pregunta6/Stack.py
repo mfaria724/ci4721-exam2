@@ -55,7 +55,7 @@ class Stack:
     """
     print('\033[1;37mPila (Fondo <<==>> Tope):\033[0m ', self.stack)
 
-  def lenght(self):
+  def length(self):
     """
       Returns the number of elements in the stack
     """

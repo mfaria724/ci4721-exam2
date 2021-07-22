@@ -51,7 +51,7 @@ def assign(stack, labels):
   """
 
   # check if there's at least 2 elements in the stack  
-  if stack.lenght() < 2:
+  if stack.length() < 2:
     print_error('No hay suficientes elementos en la pila.')
     return
 

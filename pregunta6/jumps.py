@@ -6,7 +6,7 @@ def goto(instr, labels):
     Returns the index at which a label points. If it doesn't exists return None.
   """
 
-  # check that we have an id to store the value
+  # check that we have an id to jump
   if not check_number_of_args(instr, 2):
     print_error(f'Instrucción inválida. Instrucción {instr}')
     sys.exit(1)
