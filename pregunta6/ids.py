@@ -42,7 +42,7 @@ def lvalue(instr, stack):
   # they are treated as an special case on assign method.
   stack.stack.append([id])
 
-def assign(stack, labels):
+def assign(stack, ids):
   """
     Assigns the r-value below the top of the stack to the l-value in the top of
     the stack.
@@ -68,4 +68,4 @@ def assign(stack, labels):
   stack.pop()
 
   # assigns the value to the identifier.
-  labels[lvalue[0]] = rvalue
+  ids[lvalue[0]] = rvalue

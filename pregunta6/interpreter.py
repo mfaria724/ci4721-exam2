@@ -67,7 +67,6 @@ def main():
   while index < len(lines):
     # gets the instruction
     instr = lines[index]
-    print('instr:', instr)
 
     first_token = instr[0]
 
@@ -99,7 +98,7 @@ def main():
     elif first_token == 'LVALUE':
       lvalue(instr, stack)
     elif first_token == 'ASSIGN':
-      assign(stack, labels) 
+      assign(stack, ids) 
     elif first_token in binary_ops:
       binary(first_token, stack)
     elif first_token in unary_ops:
@@ -107,9 +106,6 @@ def main():
     else:
       print_error(f'Opción inválida. Opción: {first_token}')
 
-    stack.print()
-    print('ids: ', ids)
-    print('labels: ', labels)
     index += 1
 
 if __name__ == '__main__':
