@@ -1,0 +1,13 @@
+S -> repeatWhen E lt S1 gt S2 {
+                                // Si la expresion a comparar con 0 no es un 
+                                // entero es un error, o alguno de los bloques 
+                                // es un error, entonces devuelvo un error.
+                                if (E.type != INT \/ S1.type != ERROR \/ 
+                                    S2.type != ERROR ) {
+                                  S.type = ERROR
+                                } 
+                                // Si todo esta en orden, devuelvo VOID.
+                                else {
+                                  S.type = VOID
+                                }
+                              }
