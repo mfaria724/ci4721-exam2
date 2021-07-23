@@ -1,0 +1,9 @@
+      s := 0
+      i := 0
+loop: if i < 10 goto end
+      t1 := i * i
+      t2 := s + t1
+      s := t2 / 2
+      i := i + 1
+      goto loop
+end:
