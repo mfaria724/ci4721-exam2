@@ -1,0 +1,28 @@
+S -> while M0 B1 : M1 S1 N & M3 B2 : M2 S2 {
+                                             // Si B1 es true, debo ejecutar S1
+                                             backpatch(B1.truelist, M1.instr)
+   
+                                             // Si B2 es true, debo ejecutar S2
+                                             backpatch(B2.truelist, M2.instr)
+   
+                                             // Si B1 es false, debo ejecutar B2
+                                             backpatch(B1.falselist, M3.instr)
+
+                                             // Si B2  es false, debo terminar 
+                                             // el ciclo.
+                                             S.nextlist = B2.falselist
+
+                                             // Si se ejecutó alguno de los 
+                                             // bloques, debo retornar a 'begin'
+                                             backpatch(S1.nextlist, M0.instr)
+                                             backpatch(S2.nextlist, M0.instr)
+ 
+                                             gen('goto' M0.instr)
+                                           }
+M -> lambda                                {
+                                             M.instr <- nextinstr
+                                           }
+N -> lambda                                {
+                                             N.nextinstr <- makelist(nextinstr)
+                                             gen('goto _')   
+                                           }

@@ -34,7 +34,7 @@ E -> E1 + E2    {
                   }
                 }
   |  ( E1 )     { E.type = E1.type }
-  |  num        { E.type = INT }
+  |  num        { E.type = INT  }
   |  true       { E.type = BOOL }
   |  false      { E.type = BOOL }
   |  null       { E.type = NULL }

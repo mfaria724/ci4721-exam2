@@ -1,0 +1,32 @@
+S -> while B1 : S1 & B2 : S2 {
+                               // Creo una etiqueta para iniciar el bloque
+                               begin = newlabel()
+
+                               // Creo etiquetas para lo que pase con el primer 
+                               // booleano (B1)
+                               B1.true = newlabel()
+                               B2.false = newlabel()
+                               
+                               // Creo una etiqueta para ejecutar S1 si B1 es 
+                               // true. Si es false, solo tengo que salir del 
+                               // ciclo.
+                               B2.true = newlabel()
+                               B2.false = S.next
+
+                               // Si se ejecuta alguno de los bloques (S1 o S2)
+                               // debo volver a evaluar las condiciones.
+                               S1.next = begin
+                               S2.next = begin
+
+                               // 
+                               S.code = label(begin) ++
+                                        B1.code ++
+                                        label(B1.true) ++
+                                        S1.code ++
+                                        gen('goto' begin) ++
+                                        label(B1.false) ++ // Si B1 es falso, debe venir a ejecuta B2
+                                        B2.code ++
+                                        label(B2.true) ++
+                                        S2.code ++
+                                        gen('goto' begin)
+                             }

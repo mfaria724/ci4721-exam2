@@ -1,0 +1,15 @@
+B -> B1 => B2 {
+                // Usé la definición p => q === not p \/ q
+                // Invierto el sentido si se cumple con el primer operando
+                B1.false = B.true
+                B1.true = newlabel()
+                
+                // Se queda igual si el segundo es true
+                B2.true = B.true
+                B2.false = B.false
+
+                // Genera el código
+                B.code = B1.code ++
+                         label(B1.true) ++
+                         B2.code
+              }

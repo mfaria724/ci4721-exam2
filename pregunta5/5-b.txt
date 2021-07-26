@@ -1,0 +1,18 @@
+B -> B1 => M B2 {
+                  // Estoy utilizando la definición p => q === not p \/ q
+
+                  // Si B1 es true, not B1 es false, por lo tanto hay que 
+                  // evaluar B2
+                  backpatch(B1.truelist, M.instr)
+
+                  // La expresión evalua a true si B1 es false o si B2 es true
+                  B.truelist <- merge(B1.falselist, B2.truelist)
+
+                  // La expresión evalua a false si B2 es false.
+                  // Si reviso B2 es porque B1 es true, por lo que not B1 es 
+                  // false.
+                  B.falselist <- B2.falselist
+                }
+M -> lambda     {
+                  M.instr = nextinstr
+                }
