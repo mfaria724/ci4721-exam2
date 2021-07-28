@@ -10,7 +10,7 @@ def read_id(instr, ids):
 
   # check that we have an id to store the value
   if not check_number_of_args(instr, 2):
-    sys.exit(1)
+    return
   
   # look for id
   id = instr[1]
@@ -38,7 +38,7 @@ def print_id(instr, ids):
   # check that we have an id print a value
   if len(instr) < 2:
     print(f'Instrucción inválida. Instrucción {instr}')
-    sys.exit(1)
+    return
 
   # gets the id
   id = instr[1]

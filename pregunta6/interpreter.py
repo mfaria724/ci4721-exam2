@@ -27,7 +27,7 @@ def format_instruction(instr, index, labels):
   # if instruction is empty, there's an error.
   else:
     print_error(f'Instrucción Inválida en la línea {index+1}. \n\tInstrucción: {instr}')
-    sys.exit(1)
+    return
   
   return new_instr  
 
@@ -73,6 +73,14 @@ def main():
     # checks which function needs to be called.
     if first_token == 'EXIT':
       sys.exit(0)
+    elif first_token == 'RESET':
+      stack.stack = []
+      labels = {}
+      ids = {}
+      print('stack: ', stack.stack)
+      print('labels: ', labels)
+      print('ids: ', ids)
+
     elif first_token == 'READ':
       read_id(instr, ids)
     elif first_token == 'PRINT':

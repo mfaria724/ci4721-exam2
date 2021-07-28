@@ -1,5 +1,4 @@
 from utils import cast_value, check_number_of_args, print_error
-import sys
 
 class Stack:
 
@@ -16,7 +15,7 @@ class Stack:
     
     # check that we have an id to store the value
     if not check_number_of_args(instr, 2):
-      sys.exit(1)
+      return
 
     # get the value provided
     val = instr[1]
@@ -26,7 +25,7 @@ class Stack:
     if casted_val == None:
       print_error('El valor debe ser un literal entero o booleano.' + \
                   f' Valor: {val}')
-      sys.exit(1)
+      return
 
     # adds it to the top of the stack
     self.stack.append(casted_val)

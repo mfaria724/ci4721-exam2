@@ -9,7 +9,7 @@ def rvalue(instr, ids, stack):
   
   # check that we have an id to store the value
   if not check_number_of_args(instr, 2):
-    sys.exit(1)
+    return
 
   # get the id we will look for
   id = instr[1]
@@ -32,7 +32,7 @@ def lvalue(instr, stack):
   
   # check that we have an id to store the value
   if not check_number_of_args(instr, 2):
-    sys.exit(1)
+    return
 
   # gets the id of which we want the address
   id = instr[1]

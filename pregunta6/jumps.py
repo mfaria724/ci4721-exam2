@@ -9,7 +9,7 @@ def goto(instr, labels):
   # check that we have an id to jump
   if not check_number_of_args(instr, 2):
     print_error(f'Instrucción inválida. Instrucción {instr}')
-    sys.exit(1)
+    return
 
   # get the label to where we wanna jump 
   label = instr[1]
